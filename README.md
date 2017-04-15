@@ -23,9 +23,9 @@ Also can go through flash cards created (front, back, and clozed) and replay the
 ## Cloze Card Format Example:
 2. **Cloze-Deleted** flashcards, which present _partial_ text (_"... was the first president of the United States."_), and the full text when the user requests it (_"George Washington was the first president of the United States."_)
 
-#Technologies Used: 
-	* Node.js
-	* Javascript
+# Technologies Used: 
+	*  Node.js
+	*  Javascript
 
 
 ## Code Explanation/Examples: 
