@@ -24,8 +24,8 @@ Also can go through flash cards created (front, back, and clozed) and replay the
 2. **Cloze-Deleted** flashcards, which present _partial_ text (_"... was the first president of the United States."_), and the full text when the user requests it (_"George Washington was the first president of the United States."_)
 
 #Technologies Used: 
-Node.js
-Javascript
+	* Node.js
+	* Javascript
 
 
 ## Code Explanation/Examples: 
@@ -71,7 +71,7 @@ var beginClozeCard = function(){
 
 ```
 This portion of clozeCards.js parses through the information and appends the information into the the cloze.txt file. 
- 
+
 ```
 else {
 		console.log(cards);
