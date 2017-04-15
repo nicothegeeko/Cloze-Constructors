@@ -1,0 +1,26 @@
+{
+  "name": "flashcards-generator-homework",
+  "version": "1.0.0",
+  "description": "generating some flashcards",
+  "main": "cards.js",
+  "scripts": {
+    "test": "hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicothegeeko/Cloze-Constructors.git"
+  },
+  "keywords": [
+    "homework",
+    "flashcards",
+    "constructors",
+    "node",
+    "baby"
+  ],
+  "author": "Nico Flicker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicothegeeko/Cloze-Constructors/issues"
+  },
+  "homepage": "https://github.com/nicothegeeko/Cloze-Constructors#readme"
+}
