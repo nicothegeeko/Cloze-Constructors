@@ -55,6 +55,7 @@ inquirer.prompt([
 	message:"How many cards do you want to create?"
 }
 //function to capture how many cards the user wants to create
+
 ]).then(function(answer){
 	numberCards = answer.amount;
 	beginClozeCard();
