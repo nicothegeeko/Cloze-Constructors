@@ -1,114 +1,84 @@
 # Cloze-Constructors
 # Unit 11 Assignment: Cloze Constructors
 
-# Unit 11 Assignment: Cloze Constructors
+# App Description:
 
-### Overview
+Created a backend node application that creates tradiditonal (front and back flashcards) and also creates cloze cards, which replaces answers with'...'. 
 
-In this week's assignment, you will create the backend for a basic flashcard application.
+Also can go through flash cards created (front, back, and clozed) and replay them as a game that keeps score based on how many cards are located in the text file.
 
-The backend will essentially constitute an API that allows users to create two types of flashcards.
+# Instructions:
 
+* In order to create a cloze card type "node clozeCards.js" and a prompt should come up that asks how many cards you would like to create. Then what the text of the full cloze card sentence is and then what the answer located within the clozed card text is. 
+
+* In order to create a basic card type "node basicCards.js" and a prompt should come up that asks how many cards you would like to create. Then the prompt will ask what the front question should be and what the back answer will be. 
+
+* In order to play the cloze card game type "node readBasicCards.js" and then the game should begin with the first question contained in the basic.txt file. 
+
+* In order to play the basic card game type "node readClozeCards.js" and then the game should begin with the first question contained in the cloze.txt file. 
+
+# Basic Card Format Example:
 1. **Basic** flashcards, which have a front (_"Who was the first president of the United States?"_), and a back (_"George Washington"_).
 
+## Cloze Card Format Example:
 2. **Cloze-Deleted** flashcards, which present _partial_ text (_"... was the first president of the United States."_), and the full text when the user requests it (_"George Washington was the first president of the United States."_)
 
-#### Cloze Deletions
+#Technologies Used: 
+Node.js
+Javascript
 
-A **cloze deletion** is simply a sentence that has had some of its text removed. For example, given the sentence:
 
-_"George Washington was the first president of the United States."_
+## Code Explanation/Examples: 
 
-...We can create a "cloze deletion" by removing the words _"George Washington"_:
 
-_"... was the first president of the United States."_
+The Constructors for both the basic card and cloze cards work very similarly, with the exception of the cloze card which deletes and replaces a portion of text with "...". 
 
-This is useful for building flash card applications that forces users to remember the important part of a sentence, and is [a common device in educational applications](https://en.wikipedia.org/wiki/Cloze_test).
-
-A flash card built this way has three parts:
-
-1. The **full text**. This is the entire sentence users need to remember:  _"George Washington was the first president of the United States."_
-
-2. The **cloze deletion**. This is the text we've chosen to remove: _"George Washington"_.
-
-3. The **partial text**. This is what we get if we remove the **cloze deletion** from the **full text**: _"... was the first president of the United States._
-
-See below for examples as to how your constructor should behave.
-
-### Remember
-
-You will be fully capable of doing this homework by the end of Saturday's class.
-
-## Instructions
-
-* Create a new GitHub repository, named `Flashcard-Generator` or something similar. Clone this to your local drive.
-
-* Create a `BasicCard` constructor. It should accept `front` and `back` arguments.
-
-* Create a `ClozeCard` constructor. It should accept `text` and `cloze` arguments.
-
-  * `ClozeCard` should have a property or method that contains or returns _only_ the cloze-deleted portion of the text.
-
-  * `ClozeCard` should have a property or method that contains or returns _only_ the partial text.
-
-  * `ClozeCard` should have a property or method that contains or returns _only_ the full text.
-
-  * `ClozeCard` should throw or log an error when the cloze deletion does _not_ appear in the input text.
-
-  * Use prototypes to attach these methods, wherever possible.
-
-As your application will not have a front end, your only need to determine an efficient way to store cloze-deleted cards—you don't have to solve the problem of displaying them. You are free to decide how you'd like to implement this. One might represent the above flashcard thus:
-
-The bulk of this assignment is implementing `ClozeCard`. If you build a robust `ClozeCard` implementation, feel free to try your hand at implementing a front-end, as well.
-
-### Examples
-
-Your constructors should work as follows.
+This is an example of the constructor function used for the cloze card. As you can see the "text" and "cloze" portions are seperated by inputs and then replaced with dots.
 
 ```
-var firstPresident = new BasicCard(
-    "Who was the first president of the United States?", "George Washington");
+//constructor to create the basic cards 
+function ClozeCard(text, cloze) {
+    if (this instanceof ClozeCard) {
+        this.text = text;
+        this.cloze = cloze;
+    } else {
+        return new ClozeCard(text, cloze)
+    }
+    //replace the cloze card text with ... representing the cloze
+    this.dots = function() {
+        var parts = text.replace(cloze, '...');
+        console.log(parts);
+    }
+}
 
-// "Who was the first president of the United States?"
-console.log(firstPresident.front); 
-
-// "George Washington"
-console.log(firstPresident.back); 
-
-var firstPresidentCloze = new ClozeCard(
-    "George Washington was the first president of the United States.", "George Washington");
-
-// "George Washington"
-console.log(firstPresidentCloze.cloze); 
-
-// " ... was the first president of the United States.
-console.log(firstPresidentCloze.partial); "
-
-// "George Washington was the first president of the United States.
-console.log(firstPresidentCloze.fullText): "
-
-// Should throw or log an error because "oops" doesn't appear in "This doesn't work"
-var brokenCloze("This doesn't work", "oops"); 
 ```
+Using the inquirer npm the user is prompted to input the for the cloze card, and create the card-- the basic card function operates similarly.
 
-Your property and/or method names can be different, but these examples describe how you would use your flashcard objects. 
+```
+var beginClozeCard = function(){
+	//amount of cards determined by function where user puts in the amount of cards we want
+	if(amt < numberCards){
+		//prompt where user puts in the the "text" for the cloze card and the "cloze" card answer
+	inquirer.prompt([
+	{
+		name: "text",
+		message:"Please enter the full text of your question for your card"
+	},
+	{
+		name: "cloze",
+		message:"Please enter the answer of your cloze card"
+	}
 
-### Bonuses
+```
+This portion of clozeCards.js parses through the information and appends the information into the the cloze.txt file. 
+ 
+```
+else {
+		console.log(cards);
+		for (var i = 0; i < cards.length; i++){
+			fs.appendFileSync("cloze.txt", cards[i].text+","+cards[i].cloze+"\n");
+		}
+		
+	}
 
-* Write your constructors such that users can call them with or without the `new` keyword. 
-
-  * Look up scope-safe constructors, and try to implement them. It takes only two additional lines of code.
-
-- - -
-
-### One More Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-**Good Luck!**
-
-- - -
-
-## Copyright
-
-Coding Boot Camp © 2016. All Rights Reserved.
+```
